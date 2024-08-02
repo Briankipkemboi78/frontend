@@ -50,7 +50,7 @@ const MathProblems = () => {
     const generateProblem = () => {
         const newProblems = Array.from({ length: 10 }, generateMathProblem);
         setProblems(newProblems);
-        setUserAnswers(Array(5).fill(''));
+        setUserAnswers(Array(10).fill(''));
         setScore(null);
         setIncorrectIndices([]);
     };

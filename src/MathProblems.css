@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: #3c6066; /* fallback color */
+    background: #3c6066; /* Fallback color */
 }
 
 .container {
@@ -27,7 +27,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fmath&psig=AOvVaw0C5fZzku8ZEJXAdODUudzB&ust=1722723625099000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLit-uOr14cDFQAAAAAdAAAAABAE') no-repeat center center; /* Background image */
+    background: url('./images/images.jpg') no-repeat center center; /* Correct path */
     background-size: cover;
     opacity: 0.3; /* Adjust the opacity as needed */
     z-index: -1;

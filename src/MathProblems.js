@@ -38,7 +38,7 @@ const MathProblems = () => {
 
     const generateProblem = () => {
         const newProblems = Array.from({length: 5 }, generateMathProblem);
-        setProblem(newProblems);
+        setProblems(newProblems);
         setUserAnswers(Array(5).fill(''));
         setScore(null);
     };
@@ -49,13 +49,32 @@ const MathProblems = () => {
         setUserAnswers(newUserAnswers);
     };
 
-    cont 
+    const checkAnswers = () => {
+        const correctAnswers = problems.map(problem => problem.answer);
+        const userScore = userAnswers.reduce((score, answer, index) => {
+            return score + (parseFloat(answer) === correctAnswers[index] ? 1 : 0);
+        }, 0)
+        setScore(userScore);
+    };
 
     return (
         <div>
             <h1>Math Problems for Kids</h1>
             <button onClick={generateProblem}>Generate Problem</button>
-            {problem && <p>{problem}</p>}
+            <div>
+                {problems.map((problem, index) => (
+                    <div key={index}>
+                        <p>{problem.problem}</p>
+                        <input
+                          type='text'
+                          value={userAnswers[index]}
+                          onChange={(e) => handleChange(index, e.target.value)} 
+                        />
+                    </div>
+                ))}
+            </div>
+            <button onClick={checkAnswers}>Check Answers</button>
+            {score !== null && <p>Your score is: {score}/5</p>}
         </div>
     );
 };

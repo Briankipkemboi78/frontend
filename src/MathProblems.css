@@ -2,7 +2,13 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: #3c6066; /* Fallback color */
+    height: 100vh; /* Ensure body takes up the full viewport height */
+    background: url('./images/images.jpg') no-repeat center center fixed;
+    background-color: rgba(60, 96, 102, 0.85); /* Ensure it covers the viewport */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
@@ -12,41 +18,26 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    margin: auto;
-    margin-top: 50px;
-    max-width: 1000px; /* Ensure the container does not get too wide */
-    background: rgba(60, 96, 102, 0.85); /* Semi-transparent overlay */
+    width: 80vw; /* Use viewport width to make the container responsive */
+    max-width: 1000px;
+    height: 90vh; /* Ensure the container doesn't exceed the viewport height */
+    background-color: rgba(60, 96, 102, 0.85); /* Semi-transparent background */
     position: relative;
-}
-
-.container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('./images/images.jpg') no-repeat center center; /* Correct path */
-    background-size: cover;
-    opacity: 0.3; /* Adjust the opacity as needed */
-    z-index: -1;
+    font-size: medium;
 }
 
 h1 {
     font-size: 2em;
-    color: #f0ead6; /* Egg white color */
+    color: #f0ead6;
+    margin-bottom: 10px; /* Reduce the space below the header */
 }
 
 .generate-btn,
 .check-btn {
     background-color: #4CAF50;
-    color: #f0ead6; /* Egg white color */
+    color: #f0ead6;
     border: none;
     padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 1em;
     margin: 10px;
     cursor: pointer;
@@ -71,12 +62,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
-    color: #f0ead6; /* Egg white color */
-}
-
-.problem p {
-    margin: 0;
+    color: #f0ead6;
 }
 
 .answer-input {
@@ -88,12 +74,12 @@ h1 {
 
 .answer-input.incorrect {
     border-color: red;
-    background-color: #ffcccc; /* Light red background for incorrect answers */
+    background-color: #ffcccc;
 }
 
 .score {
     font-size: 1.5em;
-    color: #f0ead6; /* Egg white color */
+    color: #f0ead6;
 }
 
 @media (max-width: 768px) {
@@ -104,9 +90,5 @@ h1 {
     .problem {
         flex-direction: column;
         align-items: flex-start;
-    }
-
-    .problem p, .problem input {
-        margin-bottom: 10px;
     }
 }

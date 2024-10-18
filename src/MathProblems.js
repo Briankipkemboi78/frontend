@@ -1,39 +1,28 @@
 import React, { useState } from 'react';
 import './MathProblems.css';
 
-// No need to import the image here
-
 const generateRandomNumber = (max) => Math.floor(Math.random() * max) + 1;
 
 const generateMathProblem = () => {
-    const operations = ['+', '-', '*', '/'];
+    const operations = ['+', '-']; // Only addition and subtraction
     let num1 = generateRandomNumber(10);
     let num2 = generateRandomNumber(10);
     let operation = operations[Math.floor(Math.random() * operations.length)];
 
-    if (operation === '/' && num1 % num2 !== 0) {
-        operation = operations[Math.floor(Math.random() * (operations.length - 1))];
-    }
-
+    // Ensure subtraction does not give negative results
     if (operation === '-' && num1 < num2) {
         [num1, num2] = [num2, num1];
     }
 
     const problem = `${num1} ${operation} ${num2}`;
-
     let answer;
+
     switch (operation) {
         case '+':
             answer = num1 + num2;
             break;
         case '-':
             answer = num1 - num2;
-            break;
-        case '*':
-            answer = num1 * num2;
-            break;
-        case '/':
-            answer = num1 / num2;
             break;
         default:
             break;
